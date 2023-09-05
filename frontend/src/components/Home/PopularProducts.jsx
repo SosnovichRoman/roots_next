@@ -17,7 +17,7 @@ const PopularProducts = () => {
     const [totalSlides, setTotalSlides] = useState(0);
 
     return (
-        <section>
+        <section className='bg-accent-1'>
             <div className='__container py-[90px]'>
                 <div className='flex items-end gap-[30px]'>
                     <h2 className='heading-2 text-main grow border-b-2 border-solid border-main-3'>Популярные товары</h2>
@@ -56,25 +56,21 @@ const PopularProducts = () => {
                                 type: 'progressbar',
                             }}
                             onSlideChange={(swiper) => setCurrentSlide(swiper.activeIndex + 1)}
-                            onSwiper={(swiper) => setTotalSlides(swiper.slides.length + 1)}
+                            onSwiper={(swiper) => setTotalSlides(swiper.slides.length)}
                         >
                             {
                                 products.map((product) =>
-                                    <SwiperSlide key={product.name} className=''>
-                                        <ProductCard product={product} className='' imgStyle='h-[400px]' />
+                                    <SwiperSlide key={product.id} className=''>
+                                        <ProductCard product={product} className='' />
                                     </SwiperSlide>
                                 )
                             }
                         </Swiper>
-                        <div className='mt-[35px] flex flex-col items-end'>
-                            <span className='mb-[6px] text-xl leading-auto text-main'>{String(currentSlide).padStart(2, '0')}</span>
-                            <div className='relative self-stretch'>
-                                <div className='popular-products__pagination'></div>
-                            </div>
-                            <span className='mt-[10px] text-lg leading-auto text-main-3'>{String(totalSlides).padStart(2, '0')}</span>
+                        <div className='mt-[35px] relative'>
+                            <span className='absolute bottom-[6px] right-0 text-xl leading-auto text-main'>{String(currentSlide).padStart(2, '0')}</span>
+                            <div className='popular-products__pagination'></div>
+                            <span className='absolute top-[10px] right-0 text-lg leading-auto text-main-3'>{String(totalSlides).padStart(2, '0')}</span>
                         </div>
-
-
                     </div>
                 </div>
             </div>

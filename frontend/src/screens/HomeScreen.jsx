@@ -1,8 +1,9 @@
 import Link from 'next/link'
 import React from 'react'
 import PopularProducts from '../components/Home/PopularProducts'
+import Catalog from '../components/Catalog/Catalog'
 
-const Home = () => {
+const HomeScreen = () => {
   return (
     <main>
       <section className='relative h-screen'>
@@ -15,8 +16,9 @@ const Home = () => {
         </div>
       </section>
       <PopularProducts />
+      <Catalog />
     </main>
   )
 }
 
-export default Home
+export default HomeScreen
