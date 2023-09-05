@@ -4,9 +4,9 @@ $minWidth: 320;
 // Ширина полотна (макета)
 $maxWidth: 1920;
 // Ширина ограничивающего контейнера (0 = нет ограничения)
-$maxWidthContainer: 1560;
+$maxWidthContainer: 1460;
 // x2
-$containerPadding: 15;
+$containerPadding: 20;
 // Ширина срабатывания первого брейкпоинта
 $containerWidth: $maxWidthContainer + $containerPadding + $containerPadding;
 
@@ -23,9 +23,64 @@ $containerWidth: $maxWidthContainer + $containerPadding + $containerPadding;
     ;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Montserrat:regular,500,600,700,800,900);
-
 body {
-    font-family: 'Montserrat';
+    font-family: 'Comfortaa';
 }
 
+.button-white {
+    @apply text-neutral-main border-[2px] border-solid border-neutral-main;
+    font-weight: 600;
+    font-size: 1.25rem;
+    font-family: 'Comfortaa';
+    padding: 20px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+    transition: color 0.15s ease, background-color 0.15s ease;
+
+    &:hover {
+        @apply text-main bg-neutral-main;
+    }
+}
+
+.button-main {
+    @apply text-main border-[2px] border-solid border-main;
+    font-weight: 600;
+    font-size: 1.25rem;
+    font-family: 'Comfortaa';
+    padding: 20px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+    transition: color 0.15s ease, background-color 0.15s ease;
+
+    &:hover {
+        @apply text-neutral-main bg-main;
+    }
+}
+
+.heading-2 {
+    font-family: Rounded Mplus 1c;
+    font-size: 3.125rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.25;
+}
+
+.text-body{
+    font-family: 'Comfortaa';
+    font-size: 1.125rem;
+    line-height: 1.25;
+    font-weight: 400;
+}
+
+.text-body-lg{
+    font-family: 'Comfortaa';
+    font-size: 1.25rem;
+    line-height: 1.25;
+    font-weight: 400;
+}

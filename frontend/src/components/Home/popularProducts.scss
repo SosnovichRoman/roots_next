@@ -1,0 +1,9 @@
+.popular-products__pagination.swiper-pagination-progressbar{
+    @apply bg-main-3;
+    width: 100%;
+    height: 2px;
+
+    & .swiper-pagination-progressbar-fill{
+        @apply bg-main;
+    }
+}
