@@ -1,25 +1,30 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link';
+import { usePathname } from 'next/navigation'
 import { navigationLinks } from '@/src/constants/links';
 
 const Header = () => {
 
+    const path = usePathname();
     const [toggle, setToggle] = useState(false);
     useEffect(() => {
         toggle ? document.documentElement.classList.add('lock') : document.documentElement.classList.remove('lock');
-    },)
+    },);
 
-    // const [scroll, setScroll] = useState(false);
-    // useEffect(() => {
-    //     setScroll(window.scrollY > 50);
-    //     window.addEventListener("scroll", () => {
-    //         setScroll(window.scrollY > 50);
-    //     });
-    // }, []);
+    const [scroll, setScroll] = useState(false);
+    useEffect(() => {
+        setScroll(window.scrollY > 200);
+        window.addEventListener("scroll", () => {
+            setScroll(window.scrollY > 200);
+        });
+        return () => {
+            window.removeEventListener("scroll");
+        }
+    }, []);
 
     return (
-        <header className={`header fixed h-[5rem] top-0 left-0 right-0 z-50`}>
+        <header className={`header fixed h-[5rem] top-0 left-0 right-0 z-50 transition-all ${scroll || path !== '/' ? 'bg-main-dark shadow-md' : ''}`}>
             <div className='header__container flex justify-between items-center h-full text-accent-1'>
                 <Link href='/' >
                     <img className='h-[45px]' src="/img/common/logo.svg" alt='logo' />

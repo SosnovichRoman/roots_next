@@ -19,7 +19,8 @@ module.exports = {
         'accent-1': "#F8F5FF",
         'neutral-main': '#FFFBF8',
         'main': '#042D1E',
-        'main-3': '#88A599'
+        'main-3': '#88A599',
+        'main-dark': '#031b12',
       },
       spacing: {
         15: '3.75rem'
