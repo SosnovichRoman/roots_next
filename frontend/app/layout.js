@@ -13,6 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Header />
+        <div className='h-[5rem]' /> {/* Whitespace */}
         {children}
         <Footer />
       </body>
