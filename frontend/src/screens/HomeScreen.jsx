@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 import PopularProducts from '../components/Home/PopularProducts'
-import Catalog from '../components/Catalog/Catalog'
+import Catalog from '../components/Catalog/CatalogGrid'
 
 const HomeScreen = () => {
   return (

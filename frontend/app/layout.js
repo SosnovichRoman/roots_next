@@ -2,6 +2,7 @@ import Header from '@/src/components/Header/Header'
 import '../src/styles/common.scss'
 import './globals.scss'
 import Footer from '@/src/components/Footer/Footer'
+import Providers from '@/src/components/Providers/Providers'
 
 export const metadata = {
   title: 'Create Next App',
@@ -12,10 +13,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Header />
-        <div className='h-[5rem]' /> {/* Whitespace */}
-        {children}
-        <Footer />
+        <Providers>
+          <Header />
+          <div className='h-[5rem]' /> {/* Whitespace */}
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   )
