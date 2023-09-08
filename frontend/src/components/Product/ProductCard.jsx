@@ -2,7 +2,25 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
 
-const ProductCard = ({ product, className, imgHeight }) => {
+const ProductCard = ({ product, className, imgHeight, variant = 'deafult' }) => {
+
+
+
+    if (variant === 'highlighted') return (
+        <Link
+            href={`/catalog/${product.id}`}
+            className={`group/product flex flex-col h-fit hover:opacity-60 active:opacity-40 transition-all duration-300 relative ${className} `}
+        >
+            <img style={{ height: imgHeight || 400 }}
+                className='w-full object-cover'
+                src={product.img} alt={product.name}
+            />
+            <div className='text-main flex gap-10 py-3 relative z-10'>
+                <span className='grow text-base leading-auto'>{product.name}</span>
+                <span className='text-xl leading-auto shrink-0'>{product.price} byn</span>
+            </div>
+        </Link>
+    )
 
     const [hovered, setHovered] = useState(false);
 
@@ -11,15 +29,13 @@ const ProductCard = ({ product, className, imgHeight }) => {
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             href={`/catalog/${product.id}`}
-            className={`group/product flex flex-col h-full hover:scale-105 transition-all duration-300 relative ${className}`}>
-            {/* <div className={`relative h-[${imgHeight ? imgHeight : '400'}px] group-hover/h-full`}>
-                <img className='absolute inset-0 w-full h-full object-cover group-hover/product:opacity-60 transition-opacity duration-300' src={product.img} alt={product.name} />
-            </div> */}
+            className={`group/product flex flex-col h-fit hover:scale-105 transition-all duration-300 relative ${className} `}
+        >
             <img style={{ height: hovered ? '100%' : imgHeight || 400 }}
                 className='absolute inset-0 w-full object-cover group-hover/product:opacity-80 group-hover/product:shadow-lg transition-all duration-300'
                 src={product.img} alt={product.name}
             />
-            <div className='text-main flex gap-5 py-3 relative z-10 transition-all duration-300 group-hover/product:p-3' style={{ marginTop: imgHeight || 400 }}>
+            <div className='text-main flex gap-10 py-3 relative z-10 transition-all duration-300 group-hover/product:p-3 group-hover/product:gap-4' style={{ marginTop: imgHeight || 400 }}>
                 <span className='grow text-base leading-auto'>{product.name}</span>
                 <span className='text-xl leading-auto shrink-0'>{product.price} byn</span>
             </div>

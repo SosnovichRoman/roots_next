@@ -61,7 +61,7 @@ const PopularProducts = () => {
                             {
                                 products.map((product) =>
                                     <SwiperSlide key={product.id} className=''>
-                                        <ProductCard product={product} className='' />
+                                        <ProductCard product={product} className='' variant='highlighted' />
                                     </SwiperSlide>
                                 )
                             }
