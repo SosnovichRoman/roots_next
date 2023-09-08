@@ -29,10 +29,10 @@ const ProductCard = ({ product, className, imgHeight, variant = 'deafult' }) => 
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             href={`/catalog/${product.id}`}
-            className={`group/product flex flex-col h-fit hover:scale-105 transition-all duration-300 relative ${className} `}
+            className={`group/product flex flex-col h-fit hover:scale-105 active:opacity-60 transition-all duration-300 relative ${className} `}
         >
             <img style={{ height: hovered ? '100%' : imgHeight || 400 }}
-                className='absolute inset-0 w-full object-cover group-hover/product:opacity-80 group-hover/product:shadow-lg transition-all duration-300'
+                className='absolute inset-0 w-full object-cover group-hover/product:opacity-80 group-hover/product:shadow-lg group-active:opacity-60 active:opacity-60 transition-all duration-300'
                 src={product.img} alt={product.name}
             />
             <div className='text-main flex gap-10 py-3 relative z-10 transition-all duration-300 group-hover/product:p-3 group-hover/product:gap-4' style={{ marginTop: imgHeight || 400 }}>
