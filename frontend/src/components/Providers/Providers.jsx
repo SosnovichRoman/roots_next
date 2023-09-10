@@ -17,4 +17,10 @@ const theme = extendTheme({
       heading: `inherit`,
       body: `inherit`,
     },
+    colors: {
+      main: {
+        100: '#042D1E',
+        300: '#88A599',
+      }
+    }
   })

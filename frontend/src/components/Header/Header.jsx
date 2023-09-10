@@ -15,11 +15,12 @@ const Header = () => {
     const [scroll, setScroll] = useState(false);
     useEffect(() => {
         setScroll(window.scrollY > 200);
-        window.addEventListener("scroll", () => {
+        function scrollEvent() {
             setScroll(window.scrollY > 200);
-        });
+        }
+        window.addEventListener("scroll", scrollEvent);
         return () => {
-            window.removeEventListener("scroll");
+            window.removeEventListener("scroll", scrollEvent);
         }
     }, []);
 
