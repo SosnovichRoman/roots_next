@@ -11,6 +11,8 @@ const ProductScreen = () => {
     const [loading, setLoading] = useState(true);
     const id = useParams().id;
 
+    const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
     useEffect(() => {
         const controller = new AbortController();
         setLoading(true);
@@ -35,10 +37,14 @@ const ProductScreen = () => {
                         </Link>
                         <div className='mt-[50px] grid grid-cols-2 gap-20'>
                             <div className=''>
-                                <img src={product.image} alt={product.name} className='w-full h-[500px] object-cover' />
+                                <img src={product.images?.[currentImageIndex]} alt={product.name} className='w-full h-[600px] object-cover' />
                                 <div className='grid grid-cols-5 gap-[30px] mt-10'>
                                     {
-                                        product.images?.map((image) => <img src={image} alt='' className='w-full aspect-square object-cover' />)
+                                        product.images?.map((image, index) =>
+                                            <img src={image}
+                                                onClick={() => setCurrentImageIndex(index)}
+                                                className={`w-full aspect-square object-cover ${currentImageIndex == index ? 'opacity-100' : 'opacity-40'} hover:opacity-100 cursor-pointer`} alt=''
+                                            />)
                                     }
                                 </div>
                             </div>
