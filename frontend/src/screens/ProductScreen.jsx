@@ -4,10 +4,18 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import axios from 'axios'
 import { useParams } from 'next/navigation'
+import { Skeleton, SkeletonText } from '@chakra-ui/react'
 
 const ProductScreen = () => {
 
-    const [product, setProduct] = useState({});
+    const [product, setProduct] = useState({
+        name: 'Название',
+        category: { name: 'Категория' },
+        description: 'Растения, имеющие специальные ткани для запаса воды. Как правило, они произрастают в местах с засушливым климатом. Растения, которые входят в группу, объединяемую термином «суккуленты», не связаны между собой общим происхождением, их схожие черты вызваны схожими условиями обитания.',
+        price: '0',
+        size: { name: 'Размер' },
+        images: ['1', '2', '3']
+    });
     const [loading, setLoading] = useState(true);
     const id = useParams().id;
 
@@ -37,29 +45,45 @@ const ProductScreen = () => {
                         </Link>
                         <div className='mt-[50px] grid grid-cols-2 gap-20'>
                             <div className=''>
-                                <img src={product.images?.[currentImageIndex]} alt={product.name} className='w-full h-[600px] object-cover' />
-                                <div className='grid grid-cols-5 gap-[30px] mt-10'>
-                                    {
-                                        product.images?.map((image, index) =>
-                                            <img src={image}
-                                                onClick={() => setCurrentImageIndex(index)}
-                                                className={`w-full aspect-square object-cover ${currentImageIndex == index ? 'opacity-100' : 'opacity-40'} hover:opacity-100 cursor-pointer`} alt=''
-                                            />)
-                                    }
-                                </div>
+                                <Skeleton isLoaded={!loading}>
+                                    <img src={product.images?.[currentImageIndex]} alt={product.name} className='w-full h-[500px] object-cover' />
+                                </Skeleton>
+                                <Skeleton isLoaded={!loading}>
+                                    <div className='grid grid-cols-5 gap-[30px] mt-10'>
+                                        {
+                                            product.images?.map((image, index) =>
+                                                <img src={image} key={image}
+                                                    onClick={() => setCurrentImageIndex(index)} alt={product.name}
+                                                    className={`w-full aspect-square object-cover ${currentImageIndex == index ? 'opacity-100' : 'opacity-40'} hover:opacity-100 cursor-pointer`}
+                                                />)
+                                        }
+                                    </div>
+                                </Skeleton>
                             </div>
                             <div className=''>
-                                <h1 className='heading-2 text-main'>{product.name}</h1>
-                                <p className='text-body-sm text-main-3'>{product.category?.name}</p>
-                                <p className='mt-10 heading-2 text-main'>{product.price} BYN</p>
-                                <p className='mt-10 text-body'>
-                                    {product.description}
-                                </p>
-                                <div className='mt-10 flex items-baseline gap-[10px]'>
-                                    <span className='text-body-sm text-main-3'>Размер:</span>
-                                    <span className='text-body-lg font-semibold'>{product.size?.name}</span>
-                                </div>
-                                <button className='mt-10 button-main'>В корзину</button>
+                                <Skeleton isLoaded={!loading}>
+                                    <h1 className='heading-2 text-main'>{product.name}</h1>
+                                </Skeleton>
+                                <Skeleton isLoaded={!loading}>
+                                    <p className='text-body-sm text-main-3 mt-1'>{product.category?.name}</p>
+                                </Skeleton>
+                                <Skeleton isLoaded={!loading}>
+                                    <p className='mt-10 heading-2 text-main'>{product.price} BYN</p>
+                                </Skeleton>
+                                <Skeleton isLoaded={!loading}>
+                                    <p className='mt-10 text-body'>
+                                        {product.description}
+                                    </p>
+                                </Skeleton>
+                                <Skeleton isLoaded={!loading}>
+                                    <div className='mt-10 flex items-baseline gap-[10px]'>
+                                        <span className='text-body-sm text-main-3'>Размер:</span>
+                                        <span className='text-body-lg font-semibold'>{product.size?.name}</span>
+                                    </div>
+                                </Skeleton>
+                                <Skeleton isLoaded={!loading} fitContent>
+                                    <button className='mt-10 button-main'>В корзину</button>
+                                </Skeleton>
                             </div>
                         </div>
                     </div>
