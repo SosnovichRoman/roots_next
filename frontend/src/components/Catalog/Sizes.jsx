@@ -21,7 +21,7 @@ const Sizes = ({ setParams, params }) => {
                 >Все размеры</button>
                 {
                     sizes.map((size) =>
-                        <button onClick={() => setParams((params) => ({ ...params, sizeId: size._id }))}
+                        <button key={size._id} onClick={() => setParams((params) => ({ ...params, sizeId: size._id }))}
                             className={`flex ${size?._id == params.sizeId ? 'underline font-bold text-main' : ''}`}
                         >
                             {size.name}

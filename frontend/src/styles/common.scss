@@ -76,19 +76,26 @@ body {
     font-size: 1.75rem;
     font-style: normal;
     font-weight: 600;
-    line-height: 1.25;
+    line-height: 1.5;
 }
 
 .text-body{
     font-family: 'Comfortaa';
     font-size: 1.125rem;
-    line-height: 1.25;
+    line-height: 1.4;
     font-weight: 400;
 }
 
 .text-body-lg{
     font-family: 'Comfortaa';
     font-size: 1.25rem;
-    line-height: 1.25;
+    line-height: 1.4;
+    font-weight: 400;
+}
+
+.text-body-sm{
+    font-family: 'Comfortaa';
+    font-size: 1rem;
+    line-height: 1.4;
     font-weight: 400;
 }

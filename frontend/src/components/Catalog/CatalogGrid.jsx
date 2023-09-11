@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import ProductCard from '../Product/ProductCard'
 import { Spinner } from '@chakra-ui/react'

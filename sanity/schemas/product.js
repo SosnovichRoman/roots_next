@@ -30,12 +30,25 @@ export default {
             ]
         },
         {
-            name: 'image',
-            title: 'Image',
+            name: 'mainImage',
+            title: 'Главное изображение',
             type: 'image',
             options: {
                 hotspot: true,
             },
+        },
+        {
+            name: 'images',
+            title: 'Изображения',
+            type: 'array',
+            of: [
+                {
+                    type: 'image',
+                    options: {
+                        hotspot: true,
+                    },
+                }
+            ],
         },
         {
             name: 'price',

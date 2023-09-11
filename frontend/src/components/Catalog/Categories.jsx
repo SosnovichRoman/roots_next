@@ -21,7 +21,7 @@ const Categories = ({ setParams, params }) => {
                 >Все категории</button>
                 {
                     categories.map((category) =>
-                        <button onClick={() => setParams((params) => ({ ...params, categoryId: category._id }))}
+                        <button key={category._id} onClick={() => setParams((params) => ({ ...params, categoryId: category._id }))}
                             className={`flex ${category?._id == params.categoryId ? 'underline font-bold text-main' : ''}`}
                         >
                             {category.name}

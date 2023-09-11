@@ -1,7 +1,7 @@
 import client from "@/src/sanity/client";
 import { NextResponse } from "next/server";
 
-export async function GET(request,) {
+export async function GET(request) {
 
     const { searchParams } = new URL(request.url);
     const categoryId = searchParams.get('categoryId');
@@ -18,7 +18,7 @@ export async function GET(request,) {
             ${minPrice ? `&& price >= ${minPrice}` : ''}
             ${maxPrice ? `&& price <= ${maxPrice}` : ''}]
             ${order ? order : ''}
-            {..., category->, "image": image.asset->url}`);
+            {..., category->, "image": mainImage.asset->url}`);
     } catch (error) {
         return new NextResponse(JSON.stringify(error), { status: 500 })
     }

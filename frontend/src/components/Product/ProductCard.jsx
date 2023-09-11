@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 
 const ProductCard = ({ product, className, imgHeight, variant = 'deafult' }) => {
 
-
+    const [hovered, setHovered] = useState(false);
 
     if (variant === 'highlighted') return (
         <Link
@@ -21,8 +21,6 @@ const ProductCard = ({ product, className, imgHeight, variant = 'deafult' }) => 
             </div>
         </Link>
     )
-
-    const [hovered, setHovered] = useState(false);
 
     return (
         <Link
