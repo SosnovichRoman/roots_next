@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import axios from 'axios'
 import { useParams } from 'next/navigation'
-import { Skeleton, SkeletonText } from '@chakra-ui/react'
+import { Skeleton } from '@chakra-ui/react'
 
 const ProductScreen = () => {
 
@@ -19,7 +19,13 @@ const ProductScreen = () => {
     const [loading, setLoading] = useState(true);
     const id = useParams().id;
 
-    const [currentImageIndex, setCurrentImageIndex] = useState(0)
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    const addToCart = () => {
+        const cartList = JSON.parse(localStorage.getItem('cartList')) || [];
+        cartList.push({ product, count: 1 });
+        localStorage.setItem('cartList', JSON.stringify(cartList));
+    }
 
     useEffect(() => {
         const controller = new AbortController();
@@ -32,7 +38,7 @@ const ProductScreen = () => {
         return () => {
             controller.abort();
         }
-    }, [])
+    }, []);
 
     return (
         <main>
@@ -82,7 +88,7 @@ const ProductScreen = () => {
                                     </div>
                                 </Skeleton>
                                 <Skeleton isLoaded={!loading} fitContent>
-                                    <button className='mt-10 button-main'>В корзину</button>
+                                    <button className='mt-10 button-main' onClick={addToCart}>В корзину</button>
                                 </Skeleton>
                             </div>
                         </div>

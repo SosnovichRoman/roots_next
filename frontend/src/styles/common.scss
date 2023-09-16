@@ -56,10 +56,57 @@ body {
     align-items: center;
     text-align: center;
     border-radius: 5px;
+    transition: color 0.15s ease, background-color 0.15s ease, opacity 0.15s ease;
+
+    &:hover {
+        @apply text-neutral-main bg-main;
+    }
+
+    &:active {
+        @apply opacity-75;
+    }
+}
+
+.button-main-filled{
+    @apply text-neutral-main bg-main border-[2px] border-solid border-main;
+    font-weight: 600;
+    font-size: 1.25rem;
+    font-family: 'Comfortaa';
+    padding: 20px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+    transition: opacity 0.15s ease;
+
+    &:hover {
+        @apply bg-main opacity-75;
+    }
+    &:active {
+        @apply opacity-50;
+    }
+}
+
+.button-main-sm {
+    @apply text-main border-[2px] border-solid border-main;
+    font-family: 'Comfortaa';
+    font-size: 1rem;
+    line-height: 1.4;
+    font-weight: 600;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
     transition: color 0.15s ease, background-color 0.15s ease;
 
     &:hover {
         @apply text-neutral-main bg-main;
+    }
+    &:active {
+        @apply opacity-75;
     }
 }
 
@@ -74,6 +121,14 @@ body {
 .heading-3 {
     font-family: 'Nunito';
     font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.heading-4 {
+    font-family: 'Nunito';
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 600;
     line-height: 1.5;
@@ -98,4 +153,8 @@ body {
     font-size: 1rem;
     line-height: 1.4;
     font-weight: 400;
+}
+
+.input-lg{
+    @apply px-5 py-3 border-[1px] border-solid border-main-3 bg-white rounded-[5px];
 }

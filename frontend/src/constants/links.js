@@ -3,4 +3,5 @@ export const navigationLinks = [
     { title: 'Каталог', href: '/catalog'},
     { title: 'О нас', href: '/about'},
     { title: 'Контакты', href: '/contacts'},
+    { title: 'Корзина', href: '/cart'},
 ]
