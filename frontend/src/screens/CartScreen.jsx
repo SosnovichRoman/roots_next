@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import CartPage from '../components/Cart/CartPage';
 import OrderPage from '../components/Cart/OrderPage';
+import DonePage from '../components/Cart/DonePage';
 
 export const CartContext = React.createContext({
     cartList: [],
@@ -54,7 +55,8 @@ const CartScreen = () => {
         <CartContext.Provider value={{ cartList, setCartList, page, setPage, orderInfo, setOrderInfo }}>
             {
                 page == 'cart' ? <CartPage />
-                    : <OrderPage />
+                    : page == 'order' ? <OrderPage />
+                    : <DonePage />
             }
         </CartContext.Provider>
 

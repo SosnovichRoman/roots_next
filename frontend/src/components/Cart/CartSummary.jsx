@@ -40,7 +40,7 @@ const CartSummary = ({ className }) => {
                     ? <button className='button-main-filled' onClick={() => setPage('order')}>
                         Перейти к оформлению
                     </button>
-                    : <button className='button-main-filled' onClick={() => console.log('order done')}>
+                    : <button className='button-main-filled' onClick={() => setPage('done')}>
                         Оформить заказ
                     </button>
             }
