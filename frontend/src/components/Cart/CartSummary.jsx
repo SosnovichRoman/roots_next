@@ -1,14 +1,14 @@
-import { CartListContext } from '@/src/screens/CartScreen'
+import { CartContext } from '@/src/screens/CartScreen';
 import React, { useContext } from 'react'
 
 const DELIVERY_COST = 50;
 
 const CartSummary = ({ className }) => {
 
-    const { cartList, page, setPage, delivery } = useContext(CartListContext);
+    const { cartList, page, setPage, orderInfo } = useContext(CartContext);
     const totalCount = cartList.reduce((total, current) => total + current.count, 0);
     const totalPrice = cartList.reduce((total, current) => total + current.count * current.product?.price, 0);
-    const totalOrder = totalPrice + (delivery == 'self' ? 0 : DELIVERY_COST)
+    const totalOrder = totalPrice + (orderInfo.delivery == 'Самовывоз' ? 0 : DELIVERY_COST)
 
     return (
         <div className={`space-y-5 flex flex-col p-10 border-2 border-main-3 border-solid rounded-[5px] bg-white h-fit ${className}`}>
@@ -24,7 +24,7 @@ const CartSummary = ({ className }) => {
             <div className='flex justify-between gap-5 items-baseline'>
                 <span className='text-body-sm'>Стоимость доставки:</span>
                 <span className='text-body-lg font-semibold'>
-                    {delivery == 'self' ? 'Бесплатно' : `${DELIVERY_COST} BYN`}
+                    {orderInfo.delivery == 'Самовывоз' ? 'Бесплатно' : `${DELIVERY_COST} BYN`}
                 </span>
             </div>
             <div className='flex text-body-sm gap-5'>

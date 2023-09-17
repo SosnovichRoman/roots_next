@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 import { Icon } from '@iconify/react'
 import CountPicker from '../Form/CountPicker'
-import { CartListContext } from '@/src/screens/CartScreen';
+import { CartContext } from '@/src/screens/CartScreen';
 
 const CartProduct = ({ item = { product: {}, count: 1 } }) => {
 
-    const { cartList, setCartList } = useContext(CartListContext);
+    const { cartList, setCartList } = useContext(CartContext);
 
     const deleteProduct = () => {
         const filteredList = cartList?.filter((listItem) => listItem?.product?._id != item?.product?._id);

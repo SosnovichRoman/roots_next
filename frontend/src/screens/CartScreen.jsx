@@ -3,20 +3,45 @@ import React, { useEffect, useState } from 'react'
 import CartPage from '../components/Cart/CartPage';
 import OrderPage from '../components/Cart/OrderPage';
 
-export const CartListContext = React.createContext({
+export const CartContext = React.createContext({
     cartList: [],
     setCartList: () => { },
     page: 'cart',
     setPage: () => { },
-    delivery: 'self',
-    setDelivery: () => { },
+    orderInfo: {
+        name: '',
+        surname: '',
+        phoneNumber: '',
+        deliveryType: 'Самовывоз',
+        deliveryInfo: {
+            street: '',
+            house: '',
+            apartment: '',
+            deliveryDate: 'Сегодня',
+            deliveryTime: '10:00 - 12:00'
+        },
+    },
+    setOrderInfo: () => { }
 });
 
 const CartScreen = () => {
 
     const [cartList, setCartList] = useState([]);
     const [page, setPage] = useState('order');
-    const [delivery, setDelivery] = useState('self');
+    const [orderInfo, setOrderInfo] = useState({
+        name: '',
+        surname: '',
+        phoneNumber: '',
+        deliveryType: 'Самовывоз',
+        deliveryInfo: {
+            street: '',
+            house: '',
+            apartment: '',
+            deliveryDate: 'Сегодня',
+            deliveryTime: '10:00 - 12:00'
+        },
+    });
+
     useEffect(() => {
         setCartList(JSON.parse(localStorage.getItem('cartList')));
     }, []);
@@ -26,12 +51,12 @@ const CartScreen = () => {
     }, [cartList]);
 
     return (
-        <CartListContext.Provider value={{ cartList, setCartList, page, setPage, delivery, setDelivery }}>
+        <CartContext.Provider value={{ cartList, setCartList, page, setPage, orderInfo, setOrderInfo }}>
             {
                 page == 'cart' ? <CartPage />
-                : <OrderPage />
+                    : <OrderPage />
             }
-        </CartListContext.Provider>
+        </CartContext.Provider>
 
     )
 }

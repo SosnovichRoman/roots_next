@@ -1,11 +1,11 @@
 'use client'
 import React, { useContext, useEffect, useState } from 'react'
 import CartProduct from './CartProduct';
-import { CartListContext } from '@/src/screens/CartScreen';
+import { CartContext } from '@/src/screens/CartScreen';
 
 const CartProductList = ({ className }) => {
 
-    const productList = useContext(CartListContext).cartList;
+    const productList = useContext(CartContext).cartList;
 
     return (
         <div className={`${className}`}>
