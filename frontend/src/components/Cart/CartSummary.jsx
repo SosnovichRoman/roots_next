@@ -8,7 +8,7 @@ const CartSummary = ({ className }) => {
     const { cartList, page, setPage, orderInfo } = useContext(CartContext);
     const totalCount = cartList.reduce((total, current) => total + current.count, 0);
     const totalPrice = cartList.reduce((total, current) => total + current.count * current.product?.price, 0);
-    const totalOrder = totalPrice + (orderInfo.delivery == 'Самовывоз' ? 0 : DELIVERY_COST)
+    const totalOrder = totalPrice + (orderInfo.deliveryType == 'Самовывоз' ? 0 : DELIVERY_COST)
 
     return (
         <div className={`space-y-5 flex flex-col p-10 border-2 border-main-3 border-solid rounded-[5px] bg-white h-fit ${className}`}>
@@ -24,7 +24,7 @@ const CartSummary = ({ className }) => {
             <div className='flex justify-between gap-5 items-baseline'>
                 <span className='text-body-sm'>Стоимость доставки:</span>
                 <span className='text-body-lg font-semibold'>
-                    {orderInfo.delivery == 'Самовывоз' ? 'Бесплатно' : `${DELIVERY_COST} BYN`}
+                    {orderInfo.deliveryType == 'Самовывоз' ? 'Бесплатно' : `${DELIVERY_COST} BYN`}
                 </span>
             </div>
             <div className='flex text-body-sm gap-5'>
