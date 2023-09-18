@@ -57,23 +57,23 @@ const Footer = () => {
 
             <ul className='mt-[30px] space-y-5 text-body'>
               <li className='flex gap-4 items-center'>
-                <Icon icon="prime:map-marker" className='text-4xl leading-none' />
+                <Icon icon="prime:map-marker" className='text-4xl leading-none shrink-0' />
                 <span>г. Минск, ул. П. Бровки, дом 32а, офис 16</span>
               </li>
               <li>
                 <a href='tel:+375 (44) 573-89-29' className='hover:underline flex gap-4 items-center'>
-                  <Icon icon="prime:phone" className='text-4xl leading-none' />
+                  <Icon icon="prime:phone" className='text-4xl leading-none shrink-0' />
                   <span>+375 (44) 573-89-29</span>
                 </a>
               </li>
               <li>
                 <a href='mailto:sosnovichroman@gmail.com' className='hover:underline flex gap-4 items-center'>
-                  <Icon icon="prime:envelope" className='text-4xl leading-none' />
+                  <Icon icon="prime:envelope" className='text-4xl leading-none shrink-0' />
                   <span>sosnovichroman@gmail.com</span>
                 </a>
               </li>
               <li className='flex gap-4 items-center'>
-                <Icon icon="prime:clock" className='text-4xl leading-none' />
+                <Icon icon="prime:clock" className='text-4xl leading-none shrink-0' />
                 <span>Пн-пт 10:00 - 18:00</span>
               </li>
             </ul>
