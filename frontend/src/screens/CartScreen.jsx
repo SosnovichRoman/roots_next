@@ -28,7 +28,7 @@ export const CartContext = React.createContext({
 const CartScreen = () => {
 
     const [cartList, setCartList] = useState([]);
-    const [page, setPage] = useState('order');
+    const [page, setPage] = useState('cart');
     const [orderInfo, setOrderInfo] = useState({
         name: '',
         surname: '',
