@@ -21,9 +21,15 @@ module.exports = {
         'main': '#042D1E',
         'main-3': '#88A599',
         'main-dark': '#031b12',
+        'placeholder': '#6C6C6C',
+        'golden': '#FFDF00',
       },
       spacing: {
         15: '3.75rem'
+      },
+      boxShadow: {
+        'small': '0px 2px 10px -1px rgba(0, 0, 0, 0.25)',
+        'medium': '0px 4px 20px -2px rgba(0, 0, 0, 0.25)',
       }
     },
   },
