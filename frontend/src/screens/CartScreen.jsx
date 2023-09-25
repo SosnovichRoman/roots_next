@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import CartPage from '../components/Cart/CartPage';
 import OrderPage from '../components/Cart/OrderPage';
 import DonePage from '../components/Cart/DonePage';
+import { Spinner } from '@chakra-ui/react';
+import EmptyPage from '../components/Cart/EmptyPage';
 
 export const CartContext = React.createContext({
     cartList: [],
@@ -27,6 +29,8 @@ export const CartContext = React.createContext({
 
 const CartScreen = () => {
 
+    const [isEmpty, setIsEmpty] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [cartList, setCartList] = useState([]);
     const [page, setPage] = useState('cart');
     const [orderInfo, setOrderInfo] = useState({
@@ -44,19 +48,25 @@ const CartScreen = () => {
     });
 
     useEffect(() => {
+        setLoading(false);
         setCartList(JSON.parse(localStorage.getItem('cartList')));
     }, []);
 
     useEffect(() => {
+        !cartList.length ? setIsEmpty(true) : setIsEmpty(false);
         localStorage.setItem('cartList', JSON.stringify(cartList));
     }, [cartList]);
 
     return (
         <CartContext.Provider value={{ cartList, setCartList, page, setPage, orderInfo, setOrderInfo }}>
             {
-                page == 'cart' ? <CartPage />
-                    : page == 'order' ? <OrderPage />
-                    : <DonePage />
+                loading ? <div className='flex justify-center py-64 bg-accent-1'>
+                    <Spinner size="xl" />
+                </div>
+                    : isEmpty ? <EmptyPage />
+                        : page == 'cart' ? <CartPage />
+                            : page == 'order' ? <OrderPage />
+                                : <DonePage />
             }
         </CartContext.Provider>
 
