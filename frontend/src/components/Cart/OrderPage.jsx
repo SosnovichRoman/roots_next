@@ -14,7 +14,7 @@ const OrderPage = () => {
         <main>
             <section className='bg-accent-1'>
                 <div className='__container py-[90px]'>
-                    <button className='flex items-center text-body hover:underline' onClick={() => setPage('cart')}>
+                    <button className='flex items-center text-body hover:underline w-fit' onClick={() => setPage('cart')}>
                         <Icon icon='prime:chevron-left' className='mr-2 text-2xl' />
                         <span className=' leading-none'>Назад в корзину</span>
                     </button>
