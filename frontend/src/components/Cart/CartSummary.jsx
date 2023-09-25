@@ -1,4 +1,5 @@
 import { CartContext } from '@/src/screens/CartScreen';
+import { useToast } from '@chakra-ui/react';
 import axios from 'axios';
 import React, { useContext } from 'react'
 
@@ -11,9 +12,29 @@ const CartSummary = ({ className }) => {
     const totalPrice = cartList?.reduce((total, current) => total + current.count * current.product?.price, 0) || 0;
     const totalOrder = totalPrice + (orderInfo.deliveryType == 'Самовывоз' ? 0 : DELIVERY_COST);
 
+    const toast = useToast();
+
     const makeOrder = () => {
 
         axios.post('/api/order', { orderInfo, cartList })
+            .then((resp) => {
+                toast({
+                    title: 'Заказ оформлен',
+                    description: "С вами свяжется менеджер для подтверждения заказа.",
+                    status: 'success',
+                    duration: 8000,
+                });
+                setPage('done');
+            })
+            .catch((error) => {
+                toast({
+                    title: 'Ошибка',
+                    description: "Произошла ошибка, повторите попытку позже.",
+                    status: 'error',
+                    duration: 8000,
+                });
+                console.log('Ошибка оформления заказа: ', error);
+            })
 
         //setPage('done')
     }

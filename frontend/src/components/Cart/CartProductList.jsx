@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import CartProduct from './CartProduct';
 import { CartContext } from '@/src/screens/CartScreen';
 
